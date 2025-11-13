@@ -18,8 +18,11 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Hello and welcome to my website! I'm Shangqun, a PhD student in Computer Science at UMass. My research focuses on enabling legged robots to walk, run, and jump using model-based optimal control and model-free reinforcement learning methods.
+I am a Ph.D. candidate at UMass Amherst's DARoS Lab, specializing in advanced control systems for legged robotics.
 
+My work involves experience across the full spectrum of control methods. I am proficient in both classical, model-based approaches (such as MPC) and modern, data-driven techniques (including RL/IL).
+
+I am passionate about creating agile and robust autonomous systems. I am always open to connecting to discuss research, new opportunities, or potential collaborations.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
