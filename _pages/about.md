@@ -18,7 +18,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a Ph.D. candidate at UMass Amherst's DARoS Lab, specializing in advanced control systems for legged robotics.
+Hello and welcome to my website! I am Daniel. I am a Ph.D. candidate at UMass Amherst's DARoS Lab, specializing in advanced control systems for legged robotics.
 
 My work involves experience across the full spectrum of control methods. I am proficient in both classical, model-based approaches (such as MPC) and modern, data-driven techniques (including RL/IL).
 
