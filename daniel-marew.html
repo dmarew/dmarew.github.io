@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Marew — UMass Amherst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #111820;
+      --surface2: #182030;
+      --border: rgba(255, 255, 255, 0.07);
+      --accent: #4af0a8;
+      --accent2: #00b4ff;
+      --text: #e8edf5;
+      --muted: #6b7a92;
+      --muted2: #8fa0be;
+      --red: #ff6b6b;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(74, 240, 168, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74, 240, 168, 0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(11, 15, 20, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted2);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 8rem 3rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid rgba(74, 240, 168, 0.3);
+      border-radius: 2px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.8);
+      }
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1.05;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-position {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--muted2);
+      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+
+    .hero-position span {
+      color: var(--accent2);
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--muted2);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 3px;
+      font-size: 0.82rem;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: #6affbb;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(74, 240, 168, 0.25);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--muted2);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(74, 240, 168, 0.05);
+    }
+
+    /* HERO VISUAL */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 340px;
+      height: 400px;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(74, 240, 168, 0.06) 0%, transparent 50%, rgba(0, 180, 255, 0.06) 100%);
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .photo-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .photo-frame::before,
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-color: var(--accent);
+      border-style: solid;
+      opacity: 0.5;
+    }
+
+    .photo-frame::before {
+      top: -8px;
+      left: -8px;
+      border-width: 2px 0 0 2px;
+    }
+
+    .photo-frame::after {
+      bottom: -8px;
+      right: -8px;
+      border-width: 0 2px 2px 0;
+    }
+
+    .stat-badge {
+      position: absolute;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-badge .num {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--accent);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .stat-badge .lbl {
+      color: var(--muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .stat-badge:nth-child(2) {
+      top: 30px;
+      right: -40px;
+    }
+
+    .stat-badge:nth-child(3) {
+      bottom: 60px;
+      left: -50px;
+    }
+
+    /* SECTIONS */
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* RESEARCH FOCUS */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .research-card {
+      background: var(--surface);
+      padding: 2rem;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .research-card:hover {
+      background: var(--surface2);
+    }
+
+    .research-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .research-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .research-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .research-card p {
+      font-size: 0.88rem;
+      color: var(--muted2);
+      line-height: 1.65;
+    }
+
+
+    /* PROJECTS */
+
+    .robot-header {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      margin-top: 3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: transform 0.3s, border-color 0.3s;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      border-color: rgba(74, 240, 168, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .project-visual {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-visual iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover .project-visual iframe {
+      opacity: 1;
+    }
+
+    .project-body {
+      padding: 1.75rem;
+    }
+
+    .project-body h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .project-body p {
+      font-size: 0.9rem;
+      color: var(--muted2);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .project-tags .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: rgba(74, 240, 168, 0.08);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    /* EXPERIENCE */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .exp-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .exp-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .exp-title span {
+      color: var(--muted2);
+      font-weight: 300;
+    }
+
+    .exp-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .exp-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent2);
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.9rem;
+      color: var(--muted2);
+      line-height: 1.65;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+      top: 0.1em;
+    }
+
+    .exp-bullets a {
+      color: var(--accent2);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+    }
+
+    .exp-bullets a:hover {
+      color: var(--accent);
+    }
+
+    .exp-bullets strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* PUBLICATIONS */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+      transition: all 0.2s;
+    }
+
+    .pub-item:hover {
+      padding-left: 0.5rem;
+    }
+
+    .pub-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+      min-width: 42px;
+    }
+
+    .pub-content h3 {
+      font-size: 0.98rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      line-height: 1.45;
+    }
+
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--muted2);
+      margin-bottom: 0.25rem;
+    }
+
+    .venue-tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      background: rgba(74, 240, 168, 0.1);
+      border: 1px solid rgba(74, 240, 168, 0.2);
+      border-radius: 2px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .skill-block {
+      background: var(--surface);
+      padding: 1.75rem 2rem;
+      transition: background 0.3s;
+    }
+
+    .skill-block:hover {
+      background: var(--surface2);
+    }
+
+    .skill-block h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .stag {
+      padding: 0.2rem 0.65rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted2);
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+
+    .stag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* AWARDS */
+    .awards-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .award-card {
+      flex: 1;
+      min-width: 220px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .award-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+
+    .award-card:hover {
+      border-color: rgba(74, 240, 168, 0.3);
+    }
+
+    .award-amount {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .award-name {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+
+    .award-desc {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .contact-detail-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      min-width: 80px;
+    }
+
+    .contact-detail-value {
+      color: var(--text);
+    }
+
+    .contact-detail-value a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--border);
+      color: var(--muted2);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+
+    .social-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(74, 240, 168, 0.05);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-left,
+    .footer-right {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .orb {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74, 240, 168, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+      top: -200px;
+      right: -200px;
+      z-index: 0;
+    }
+
+    .orb2 {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 180, 255, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+      bottom: 0;
+      left: -100px;
+      z-index: 0;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 7rem 1.5rem 3rem;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .awards-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="orb"></div>
+  <div class="orb2"></div>
+
+  <nav>
+    <a href="#" class="nav-logo">DMAREW</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#robots">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-tag">PhD Candidate · Computer Science</div>
+      <h1>Daniel<br><em>Marew</em></h1>
+      <p class="hero-position">
+        University of Massachusetts Amherst · <span>DARoS Lab</span><br>
+        Advisor: <span>Prof. Donghyun Kim</span>
+      </p>
+      <p class="hero-bio">
+        I build controllers and algorithms that make humanoid robots move like humans — combining reinforcement
+        learning, whole-body control, and motion capture to close the sim-to-real gap for legged systems.
+      </p>
+      <div class="hero-links">
+        <a href="https://scholar.google.com/citations?user=WHzg02wAAAAJ&hl=en" class="btn btn-primary" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+          </svg>
+          Google Scholar
+        </a>
+        <a href="https://www.linkedin.com/in/daniel-marew-3b4513114/" class="btn btn-ghost" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="mailto:dmarew@umass.edu" class="btn btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,12 2,6" />
+          </svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <img src="prof_pic.jpg" alt="Daniel Marew" class="profile-photo">
+          <p class="photo-caption">DARoS Lab · UMass CICS</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH FOCUS -->
+  <section id="research">
+    <div class="section-header">
+      <span class="section-label">01 / Research Focus</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Humanoid Robots<br>That Move Like Us</h2>
+    <p style="color:var(--muted2); max-width:600px; margin-bottom:3rem; font-size:0.95rem; line-height:1.75;">
+      My research sits at the intersection of control theory, machine learning, and biomechanics — aiming to give
+      humanoid robots the agility, efficiency, and robustness of human locomotion.
+    </p>
+
+    <div class="research-grid fade-up">
+      <div class="research-card">
+        <span class="research-icon">🦾</span>
+        <h3>Humanoid Control</h3>
+        <p>RL sim-to-real transfer, Model Predictive Control, and Whole-Body Control for dynamic, contact-rich humanoid
+          locomotion across varied terrains.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🏗️</span>
+        <h3>Robot Development</h3>
+        <p>End-to-end hardware involvement: design validation, system identification for robots with kinematic loops,
+          and electrical system design including PCB layout.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🦶</span>
+        <h3>Actuated-Toe Locomotion</h3>
+        <p>Pioneering actuated-toe enabled humanoid locomotion using imitation learning — inspired by human biomechanics
+          for greater energetic efficiency.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🎬</span>
+        <h3>Motion Capture Retargeting</h3>
+        <p>Custom fast SQP solver for MoCap retargeting at 20,000 fps — 100× faster than GMR/ProtoMotion baselines,
+          completing 4-hour datasets in under 1 minute.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🧠</span>
+        <h3>Sim-to-Real Transfer</h3>
+        <p>Bridging the gap between simulation and physical hardware for robots with complex kinematic loops and
+          cooperative actuation schemes.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">⚡</span>
+        <h3>Trajectory Optimization</h3>
+        <p>Re-targeting human MoCap data to kinodynamically feasible, hardware-consistent robot trajectories via custom
+          optimization frameworks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="robots" style="padding-top:0;">
+    <div class="section-header">
+      <span class="section-label">02 / Projects</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Robots &amp;<br>Ongoing Projects</h2>
+
+    <!-- PresToe -->
+    <h3 class="robot-header">PresToe</h3>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #0f1e30, #0a1220);">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="humanoid · actuated toe"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>PresToe</h3>
+          <p>Project description goes here. Add your details about this ongoing project.</p>
+          <div class="project-tags">
+            <span class="tag">Tag 1</span>
+            <span class="tag">Tag 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- StaccaToe -->
+    <h3 class="robot-header">StaccaToe</h3>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="sim-to-real · locomotion"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>StaccaToe</h3>
+          <p>Project description goes here. Add your details about this ongoing project.</p>
+          <div class="project-tags">
+            <span class="tag">Tag 1</span>
+            <span class="tag">Tag 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dash -->
+    <h3 class="robot-header">Dash</h3>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #1a1520, #0f0f1a);">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="motion capture · retargeting"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Dash</h3>
+          <p>Project description goes here. Add your details about this ongoing project.</p>
+          <div class="project-tags">
+            <span class="tag">Tag 1</span>
+            <span class="tag">Tag 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pat -->
+    <h3 class="robot-header">Pat</h3>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #0f2030, #0a1820);">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="biped · mpc control"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Pat</h3>
+          <p>Project description goes here. Add your details about this ongoing project.</p>
+          <div class="project-tags">
+            <span class="tag">Tag 1</span>
+            <span class="tag">Tag 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unitree G1 -->
+    <h3 class="robot-header">Unitree G1</h3>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #201020, #150a15);">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="humanoid · rl integration"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Unitree G1</h3>
+          <p>Advanced humanoid locomotion and manipulation research on the Unitree G1 platform.</p>
+          <div class="project-tags">
+            <span class="tag">Humanoid</span>
+            <span class="tag">RL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MIT Mini Cheetah -->
+    <h3 class="robot-header">MIT Mini Cheetah</h3>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #102020, #0a1515);">
+          <iframe src="https://www.youtube.com/embed/5exyYklqRHo" title="quadruped · dynamic locomotion"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Real-time Bayesian Optimization Based Gain Tuning</h3>
+          <p>Implementation of real-time Bayesian optimization based gain tuning for dynamic quadruped locomotion.</p>
+          <div class="project-tags">
+            <span class="tag">Quadruped</span>
+            <span class="tag">Control</span>
+            <span class="tag">Bayesian Optimization</span>
+            <span class="tag">MPC</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #152520, #0a1815);">
+          <iframe src="https://www.youtube.com/embed/32_mrH9mSTE?rel=0" title="quadruped · extreme balancing"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Extreme Balancing</h3>
+          <p>Single Rigid Body MPC + Whole Body Control for dynamic balancing beam walking.</p>
+          <div class="project-tags">
+            <span class="tag">Quadruped</span>
+            <span class="tag">Control</span>
+            <span class="tag">MPC</span>
+            <span class="tag">Whole Body Control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- EDUCATION (inline between experience and publications) -->
+  <section id="education" style="padding-top:0;">
+    <div class="section-header">
+      <span class="section-label">03 / Education</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="exp-list fade-up">
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Ph.D. Candidate, Computer Science</div>
+          <div class="exp-date">2019 — Expected 2026</div>
+        </div>
+        <div class="exp-sub">University of Massachusetts Amherst</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">M.Sc., Electrical &amp; Computer Engineering</div>
+          <div class="exp-date">2017 — 2018</div>
+        </div>
+        <div class="exp-sub">Carnegie Mellon University</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">B.Sc., Electrical &amp; Computer Engineering</div>
+          <div class="exp-date">2012 — 2017</div>
+        </div>
+        <div class="exp-sub">Addis Ababa University</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" style="padding-top:0;">
+    <div class="section-header">
+      <span class="section-label">04 / Publications</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Selected Works</h2>
+
+    <div class="pub-list fade-up">
+
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h3>StaccaToe: A Single-Leg Robot that Mimics the Human Leg and Toe</h3>
+          <p class="pub-authors">D. Marew et al.</p>
+          <span class="venue-tag">IROS 2024</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h3>Learning Generic and Dynamic Locomotion of Humanoids Across Discrete Terrains</h3>
+          <p class="pub-authors">D. Marew et al.</p>
+          <span class="venue-tag">Humanoids 2024</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h3>A Biomechanics-Inspired Approach to Soccer Kicking for Humanoid Robots</h3>
+          <p class="pub-authors">D. Marew et al.</p>
+          <span class="venue-tag">Humanoids 2024</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div class="pub-content">
+          <h3>Integration of Riemannian Motion Policy with Whole-Body Control for Collision-Free Legged Locomotion</h3>
+          <p class="pub-authors">D. Marew et al.</p>
+          <span class="venue-tag">Humanoids 2023 · Oral</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="padding-top:0;">
+    <div class="section-header">
+      <span class="section-label">05 / Technical Skills</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Stack &amp; Tools</h2>
+
+    <div class="skills-grid fade-up">
+      <div class="skill-block">
+        <h3>Languages &amp; Frameworks</h3>
+        <div class="skill-tags">
+          <span class="stag">Python</span>
+          <span class="stag">C</span>
+          <span class="stag">C++</span>
+          <span class="stag">PyTorch</span>
+          <span class="stag">JAX</span>
+          <span class="stag">Eigen</span>
+          <span class="stag">CasADi</span>
+          <span class="stag">Pinocchio</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Control &amp; Learning</h3>
+        <div class="skill-tags">
+          <span class="stag">RL / IL</span>
+          <span class="stag">IsaacGym</span>
+          <span class="stag">IsaacLab</span>
+          <span class="stag">mjlab</span>
+          <span class="stag">MPC</span>
+          <span class="stag">Whole-Body Control</span>
+          <span class="stag">RMPflow</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Simulation</h3>
+        <div class="skill-tags">
+          <span class="stag">IsaacSim</span>
+          <span class="stag">MuJoCo</span>
+          <span class="stag">Raisim</span>
+          <span class="stag">Simple</span>
+          <span class="stag">MIT Robot Software</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Hardware</h3>
+        <div class="skill-tags">
+          <span class="stag">PCB Design (KiCad)</span>
+          <span class="stag">EasyEDA</span>
+          <span class="stag">CAD (Onshape)</span>
+          <span class="stag">Embedded Systems</span>
+          <span class="stag">CAN-bus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-label">06 / Contact</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="fade-up">
+        <h2>Get in Touch</h2>
+        <p style="color:var(--muted2); font-size:0.92rem; margin-bottom:2rem; line-height:1.75;">
+          I'm open to discussions about research collaborations, post-doctoral positions and full-time positions.
+          Feel free to reach out!
+        </p>
+
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <span class="contact-detail-value"><a href="mailto:dmarew@umass.edu">dmarew@umass.edu</a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Phone</span>
+          <span class="contact-detail-value">+1 (413) 512-1697</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Address</span>
+          <span class="contact-detail-value">740 North Pleasant St, Amherst, MA 01003</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Lab</span>
+          <span class="contact-detail-value">DARoS Lab · UMass CICS</span>
+        </div>
+
+        <div class="social-links">
+          <a href="https://scholar.google.com/citations?user=WHzg02wAAAAJ&hl=en" class="social-link" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+            </svg>
+            Scholar
+          </a>
+          <a href="https://www.linkedin.com/in/daniel-marew-3b4513114/" class="social-link" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/danenigma" class="social-link" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-up" style="animation-delay:0.2s;">
+        <div style="background:var(--surface); border:1px solid var(--border); padding:2.5rem;">
+          <h3 style="font-family:'DM Serif Display',serif; font-size:1.4rem; font-weight:400; margin-bottom:1.5rem;">
+            About My Work</h3>
+          <p style="color:var(--muted2); font-size:0.9rem; line-height:1.75; margin-bottom:1.5rem;">
+            I am a PhD candidate in the <strong style="color:var(--text)">DARoS Lab</strong> at UMass Amherst, working
+            under Prof. Donghyun Kim. My dissertation focuses on efficient humanoid locomotion — specifically using
+            actuated toes to replicate the energy-saving mechanics of human walking.
+          </p>
+          <p style="color:var(--muted2); font-size:0.9rem; line-height:1.75; margin-bottom:1.5rem;">
+            Outside of robotics research, I am deeply interested in the intersection of <strong
+              style="color:var(--text)">biomechanics and machine learning</strong> — and how the principles of human
+            motion can inform the design of more capable robotic systems.
+          </p>
+          <a href="mailto:dmarew@umass.edu" class="btn btn-primary" style="margin-top:0.5rem; display:inline-flex;">
+            Contact Me →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">© 2024 Daniel Marew · UMass CICS · DARoS Lab</div>
+    <div class="footer-right">Amherst, MA</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (scrollY >= section.offsetTop - 120) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+      });
+    });
+  </script>
+</body>
+
+</html>
