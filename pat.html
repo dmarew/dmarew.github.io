@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pat Project — Daniel Marew</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --surface: #111820;
+            --surface2: #182030;
+            --border: rgba(255, 255, 255, 0.07);
+            --accent: #4af0a8;
+            --accent2: #00b4ff;
+            --text: #e8edf5;
+            --muted: #6b7a92;
+            --muted2: #8fa0be;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(74, 240, 168, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 240, 168, 0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 3rem;
+            background: rgba(11, 15, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted2);
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: 'DM Mono', monospace;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 8rem 3rem 5rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        p.intro {
+            font-size: 1.1rem;
+            color: var(--muted2);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .media-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            margin-bottom: 4rem;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .media-visual {
+            background: linear-gradient(135deg, #0f2030, #0a1820);
+            position: relative;
+            width: 100%;
+        }
+
+        .media-visual.video {
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
+        }
+
+        .media-visual iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .media-visual.image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: #111820;
+        }
+
+        .media-visual.image img {
+            max-width: 100%;
+            max-height: 60vh;
+            object-fit: contain;
+        }
+
+        .media-visual.split {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            background: #ffffff;
+            gap: 2rem;
+        }
+
+        .media-visual.split img {
+            width: 48%;
+            height: auto;
+            max-height: 50vh;
+            object-fit: contain;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .media-body {
+            padding: 2.5rem;
+        }
+
+        .media-body h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .media-body p {
+            font-size: 0.95rem;
+            color: var(--muted2);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tags .tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: rgba(74, 240, 168, 0.08);
+            padding: 0.35rem 0.8rem;
+            border-radius: 2px;
+        }
+
+        .orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 240, 168, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            top: -200px;
+            right: -200px;
+            z-index: 0;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-left {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="orb"></div>
+
+    <nav>
+        <a href="daniel-marew.html" class="nav-logo">← BACK TO HOME</a>
+        <ul class="nav-links">
+            <li><a href="daniel-marew.html#research">Research</a></li>
+            <li><a href="daniel-marew.html#robots">Projects</a></li>
+            <li><a href="mailto:dmarew@umass.edu">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="section-header">
+            <span class="section-label">Project Deep-Dive</span>
+            <div class="section-line"></div>
+        </div>
+
+        <h1>Pat: The 6 DoF Point-foot Biped</h1>
+
+        <div class="media-card">
+            <div class="media-visual image" style="background: #ffffff;">
+                <img src="pat/pat_main_fig.png" alt="Pat Point-foot Biped">
+            </div>
+            <div class="media-body">
+                <h3>Overview</h3>
+                <p>Pat is a 70 cm, 5.4 kg, 6 Degree of Freedom (DoF) point-foot biped made entirely from off-the-shelf
+                    components. Point-foot bipeds are relatively simple legged systems structurally, but since they are
+                    severely underactuated and highly unstable, they are extremely challenging to control. This makes
+                    them an ideal experimental platform for testing the limits of dynamic biped locomotion.</p>
+                <div class="project-tags">
+                    <span class="tag">Biped</span>
+                    <span class="tag">Hardware</span>
+                    <span class="tag">Underactuated</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="media-card">
+            <div class="media-visual split">
+                <img src="pat/pcb_design.png" alt="PCB Design Grid">
+                <img src="pat/pcb_assembled.jpg" alt="Assembled PCB Board">
+            </div>
+            <div class="media-body">
+                <h3>Power Distribution Board Design</h3>
+                <p>Custom power distribution board based on Ben Katz's PDB design for MIT Mini Cheetah adapted to handle
+                    higher voltage and current requirements of UPboard-Xtreme SBC.</p>
+                <div class="project-tags">
+                    <span class="tag">PCB Design</span>
+                    <span class="tag">Electrical</span>
+                </div>
+            </div>
+        </div>
+        <div class="media-card">
+            <div class="media-visual video">
+                <iframe src="https://www.youtube.com/embed/ji6JjWwxMhw?rel=0&start=17" title="hardware development"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="media-body">
+                <h3>Hardware Assembly &amp; Testing (Part 1)</h3>
+                <p>Testing CAN communication between the UPboard-Xtreme SBC and T-motor actuators via PCAN-miniPCIe FD
+                    interface.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Hardware</span>
+                    <span class="tag">Electrical</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="media-card">
+            <div class="media-visual split">
+                <img src="pat/pat_mc.jpg" alt="Pat">
+                <img src="pat/imu.jpg" alt="IMU Sensor">
+            </div>
+            <div class="media-visual video">
+                <iframe src="https://www.youtube.com/embed/S3tMWB6FsNc?rel=0" title="robot assembly"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="media-visual video">
+                <iframe src="https://www.youtube.com/embed/pXWYUymrUBM?rel=0&start=1" title="robot assembly"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="media-body">
+                <h3>Robot Assembly</h3>
+                <div class="project-tags">
+                    <span class="tag">Robot Assembly</span>
+                    <span class="tag">Hardware Integration</span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="media-card">
+            <div class="media-visual video">
+                <iframe src="https://www.youtube.com/embed/70rUfxNkts8?rel=0&start=66" title="biped · mpc control"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="media-body">
+                <h3>MPC Control Architecture</h3>
+                <p>Demonstration of Model Predictive Control (MPC) running on Pat to achieve stable balancing and
+                    dynamic movements despite the challenging point-foot constraints.</p>
+                <div class="project-tags">
+                    <span class="tag">Control Theory</span>
+                    <span class="tag">MPC</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-left">© 2024 Daniel Marew · Pat Project</div>
+    </footer>
+
+</body>
+
+</html>

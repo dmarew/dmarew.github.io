@@ -108,7 +108,7 @@
       align-items: center;
       gap: 4rem;
       padding: 8rem 3rem 4rem;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -349,7 +349,7 @@
     section {
       position: relative;
       z-index: 1;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 5rem 3rem;
     }
@@ -846,7 +846,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -1064,18 +1064,47 @@
     <h3 class="robot-header">PresToe</h3>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #0f1e30, #0a1220);">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="humanoid · actuated toe"
+        <div class="project-visual"
+          style="background: #ffffff; display: flex; justify-content: center; align-items: center; overflow: hidden; height: 500px;">
+          <img src="prestoe/prestoe.png" alt="PresToe Anthropomorphic Humanoid"
+            style="width: 100%; height: 100%; object-fit: contain; opacity: 0.9;">
+        </div>
+        <div class="project-body">
+          <h3>PresToe: Anthropomorphic Humanoid</h3>
+          <p>PresToe is an anthropomorphic humanoid with 23 DoF, developed from StaccaToe's leg design well-suited to
+            study how toe actuation enables human-like, straight-knee, energy-efficient locomotion.</p>
+          <div class="project-tags">
+            <span class="tag">Humanoid</span>
+            <span class="tag">Actuated Toe</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual"
+          style="background: linear-gradient(135deg, #0f1e30, #0a1220); height: 750px; position: relative;">
+          <div
+            style="position: absolute; top: 15px; left: 15px; background: rgba(74, 240, 168, 0.9); color: #0b0f14; padding: 6px 12px; border-radius: 4px; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 10; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
+            Interactive 3D Visualization
+          </div>
+          <iframe src="https://dmarew.github.io/mjlab-staccatoe/?file=tracking-flat-prestoe_20_robots.viser"
+            title="humanoid · actuated toe tracking"
+            style="position: absolute; top: -300px; left: 0; width: 100%; height: calc(100% + 300px); border: none;"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
         <div class="project-body">
-          <h3>PresToe</h3>
-          <p>Project description goes here. Add your details about this ongoing project.</p>
+          <h3>Motion Tracking RL Policy</h3>
           <div class="project-tags">
-            <span class="tag">Tag 1</span>
-            <span class="tag">Tag 2</span>
+            <span class="tag">RL</span>
+            <span class="tag">Motion Tracking</span>
           </div>
         </div>
       </div>
@@ -1086,17 +1115,67 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="sim-to-real · locomotion"
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1?rel=0" title="RL Sim2real"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
         <div class="project-body">
-          <h3>StaccaToe</h3>
-          <p>Project description goes here. Add your details about this ongoing project.</p>
+          <h3>RL Sim2real</h3>
+          <p>Placeholder for RL Sim2real project description.</p>
           <div class="project-tags">
-            <span class="tag">Tag 1</span>
-            <span class="tag">Tag 2</span>
+            <span class="tag">RL</span>
+            <span class="tag">Sim-to-Real</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2?rel=0" title="System Identification"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>System Identification</h3>
+          <p>Placeholder for System Identification project description.</p>
+          <div class="project-tags">
+            <span class="tag">System ID</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3?rel=0" title="Wholebody MPC"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Wholebody MPC</h3>
+          <p>Placeholder for Wholebody MPC project description.</p>
+          <div class="project-tags">
+            <span class="tag">MPC</span>
+            <span class="tag">Whole-Body Control</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4?rel=0" title="Design Validation Trajectory Optimization"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Design Validation Trajectory Optimization</h3>
+          <p>Placeholder for Design Validation Trajectory Optimization project description.</p>
+          <div class="project-tags">
+            <span class="tag">Trajectory Optimization</span>
+            <span class="tag">Design Validation</span>
           </div>
         </div>
       </div>
@@ -1127,19 +1206,22 @@
     <h3 class="robot-header">Pat</h3>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #0f2030, #0a1820);">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="biped · mpc control"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div class="project-visual"
+          style="background: #ffffff; display: flex; justify-content: center; align-items: center; overflow: hidden; height: 220px;">
+          <img src="pat/pat_main_fig.png" alt="Pat Point-foot Biped"
+            style="width: 100%; height: 100%; object-fit: contain; opacity: 0.9;">
         </div>
         <div class="project-body">
-          <h3>Pat</h3>
-          <p>Project description goes here. Add your details about this ongoing project.</p>
+          <h3>Pat: 6 DoF Point-foot Biped</h3>
+          <p>Pat is a 70 cm, 5.4 kg point-foot biped built from off-the-shelf components. We explore advanced Model
+            Predictive Control and hardware development on this highly unstable platform.</p>
           <div class="project-tags">
-            <span class="tag">Tag 1</span>
-            <span class="tag">Tag 2</span>
+            <span class="tag">Biped</span>
+            <span class="tag">Hardware</span>
+            <span class="tag">MPC</span>
           </div>
+          <a href="pat.html" class="btn btn-primary" style="margin-top: 1.5rem; display: inline-flex;">Read the Dev Blog
+            →</a>
         </div>
       </div>
     </div>
