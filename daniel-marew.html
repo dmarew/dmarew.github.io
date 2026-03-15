@@ -104,7 +104,7 @@
       position: relative;
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 3fr 2fr;
       align-items: center;
       gap: 4rem;
       padding: 8rem 3rem 4rem;
@@ -244,8 +244,8 @@
 
     .photo-frame {
       position: relative;
-      width: 340px;
-      height: 400px;
+      width: 260px;
+      height: 320px;
     }
 
     .photo-placeholder {
@@ -271,8 +271,9 @@
 
     .profile-photo {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
+      object-position: center 20%;
       border-radius: 2px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
@@ -943,7 +944,7 @@
   <nav>
     <a href="#" class="nav-logo">DMAREW</a>
     <ul class="nav-links">
-      <li><a href="#research">Research</a></li>
+      <li><a href="#robots">Research</a></li>
       <li><a href="#robots">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -961,8 +962,10 @@
         Advisor: <span>Prof. Donghyun Kim</span>
       </p>
       <p class="hero-bio">
-        I build controllers and algorithms that make humanoid robots move like humans — combining reinforcement
-        learning, whole-body control, and motion capture to close the sim-to-real gap for legged systems.
+        I'm a Ph.D. candidate at UMass Amherst's DARoS Lab, passionate about making humanoid robots move with the
+        agility and efficiency of humans. My work spans the full control stack, from model-based methods (MPC,
+        Whole-Body Control) to data-driven approaches (RL, Imitation Learning), with hands-on experience in robot
+        design, system identification, sim-to-real transfer, and kinodynamically consistent motion retargeting.
       </p>
       <div class="hero-links">
         <a href="https://scholar.google.com/citations?user=WHzg02wAAAAJ&hl=en" class="btn btn-primary" target="_blank">
@@ -1000,65 +1003,83 @@
     </div>
   </div>
 
-  <!-- RESEARCH FOCUS -->
-  <section id="research">
-    <div class="section-header">
-      <span class="section-label">01 / Research Focus</span>
-      <div class="section-line"></div>
-    </div>
-    <h2>Humanoid Robots<br>That Move Like Us</h2>
-    <p style="color:var(--muted2); max-width:600px; margin-bottom:3rem; font-size:0.95rem; line-height:1.75;">
-      My research sits at the intersection of control theory, machine learning, and biomechanics — aiming to give
-      humanoid robots the agility, efficiency, and robustness of human locomotion.
-    </p>
-
-    <div class="research-grid fade-up">
-      <div class="research-card">
-        <span class="research-icon">🦾</span>
-        <h3>Humanoid Control</h3>
-        <p>RL sim-to-real transfer, Model Predictive Control, and Whole-Body Control for dynamic, contact-rich humanoid
-          locomotion across varied terrains.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🏗️</span>
-        <h3>Robot Development</h3>
-        <p>End-to-end hardware involvement: design validation, system identification for robots with kinematic loops,
-          and electrical system design including PCB layout.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🦶</span>
-        <h3>Actuated-Toe Locomotion</h3>
-        <p>Pioneering actuated-toe enabled humanoid locomotion using imitation learning — inspired by human biomechanics
-          for greater energetic efficiency.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🎬</span>
-        <h3>Motion Capture Retargeting</h3>
-        <p>Custom fast SQP solver for MoCap retargeting at 20,000 fps — 100× faster than GMR/ProtoMotion baselines,
-          completing 4-hour datasets in under 1 minute.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🧠</span>
-        <h3>Sim-to-Real Transfer</h3>
-        <p>Bridging the gap between simulation and physical hardware for robots with complex kinematic loops and
-          cooperative actuation schemes.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">⚡</span>
-        <h3>Trajectory Optimization</h3>
-        <p>Re-targeting human MoCap data to kinodynamically feasible, hardware-consistent robot trajectories via custom
-          optimization frameworks.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- PROJECTS -->
   <section id="robots" style="padding-top:0;">
     <div class="section-header">
-      <span class="section-label">02 / Projects</span>
+      <span class="section-label">01 / Projects</span>
       <div class="section-line"></div>
     </div>
     <h2>Robots &amp;<br>Ongoing Projects</h2>
+
+    <!-- Motion Retargeting -->
+    <h3 class="robot-header">Motion Retargeting</h3>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #0f1e30, #0a1220);">
+          <iframe src="https://www.youtube.com/embed/Zaigk4R3HyA?rel=0" title="Motion Retargeting"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Motion Retargeting</h3>
+          <p>Motion capture retargeting pipeline with custom fast SQP solver, processing at 20,000 fps and completing
+            4-hour LAFAN1 dataset retargeting in &lt; 1 minute (100× faster than GMR/ProtoMotion baselines).</p>
+          <div class="project-tags">
+            <span class="tag">Motion Capture</span>
+            <span class="tag">Retargeting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual" style="background: linear-gradient(135deg, #0f1e30, #0a1220);">
+          <iframe src="https://www.youtube.com/embed/FkjsR30B100?rel=0"
+            title="Dynamically Consistent Motion Retargeting"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Dynamically Consistent Motion Retargeting Using Contact Implicit Whole-body MPC</h3>
+          <div class="project-tags">
+            <span class="tag">Motion Capture</span>
+            <span class="tag">Retargeting</span>
+            <span class="tag">MPC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual"
+          style="background: linear-gradient(135deg, #0f1e30, #0a1220); height: 750px; position: relative;">
+          <div
+            style="position: absolute; top: 15px; left: 15px; background: rgba(74, 240, 168, 0.9); color: #0b0f14; padding: 6px 12px; border-radius: 4px; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 10; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
+            Interactive 3D Visualization
+          </div>
+          <iframe src="https://dmarew.github.io/mocap_retargeting/?file=g1_lafan.viser"
+            title="Motion Retargeting · Interactive Simulation"
+            style="position: absolute; top: -300px; left: 0; width: 100%; height: calc(100% + 300px); border: none;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-body">
+          <h3>Motion Retargeting Interactive Simulation</h3>
+          <div class="project-tags">
+            <span class="tag">Motion Capture</span>
+            <span class="tag">Retargeting</span>
+            <span class="tag">3D Visualization</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- PresToe -->
     <h3 class="robot-header">PresToe</h3>
@@ -1115,14 +1136,14 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1?rel=0" title="RL Sim2real"
+          <iframe src="https://www.youtube.com/embed/v-jaWb7lFDY?rel=0" title="RL Sim2real"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
         <div class="project-body">
           <h3>RL Sim2real</h3>
-          <p>Placeholder for RL Sim2real project description.</p>
+          <p>RL Sim-to-Real for robots with kinematic loops and coupled cooperatively actuated joints.</p>
           <div class="project-tags">
             <span class="tag">RL</span>
             <span class="tag">Sim-to-Real</span>
@@ -1132,14 +1153,13 @@
 
       <div class="project-card">
         <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2?rel=0" title="System Identification"
+          <iframe src="https://www.youtube.com/embed/0KvV1yG93LA?rel=0" title="System Identification"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
         <div class="project-body">
           <h3>System Identification</h3>
-          <p>Placeholder for System Identification project description.</p>
           <div class="project-tags">
             <span class="tag">System ID</span>
           </div>
@@ -1147,15 +1167,13 @@
       </div>
 
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3?rel=0" title="Wholebody MPC"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div class="project-visual"
+          style="background: linear-gradient(135deg, #182010, #0f1a0a); display: flex; justify-content: center; align-items: center; overflow: hidden;">
+          <img src="staccatoe/staccatoe-wmpc.gif" alt="Wholebody MPC"
+            style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="project-body">
           <h3>Wholebody MPC</h3>
-          <p>Placeholder for Wholebody MPC project description.</p>
           <div class="project-tags">
             <span class="tag">MPC</span>
             <span class="tag">Whole-Body Control</span>
@@ -1164,15 +1182,13 @@
       </div>
 
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4?rel=0" title="Design Validation Trajectory Optimization"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div class="project-visual"
+          style="background: linear-gradient(135deg, #182010, #0f1a0a); display: flex; justify-content: center; align-items: center; overflow: hidden;">
+          <img src="staccatoe/staccatoe-to.gif" alt="Design Validation Trajectory Optimization"
+            style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="project-body">
           <h3>Design Validation Trajectory Optimization</h3>
-          <p>Placeholder for Design Validation Trajectory Optimization project description.</p>
           <div class="project-tags">
             <span class="tag">Trajectory Optimization</span>
             <span class="tag">Design Validation</span>
@@ -1185,18 +1201,33 @@
     <h3 class="robot-header">Dash</h3>
     <div class="projects-grid">
       <div class="project-card">
+        <div class="project-visual"
+          style="background: #ffffff; display: flex; justify-content: center; align-items: center; overflow: hidden; height: 500px;">
+          <img src="dash/dash.png" alt="Dash Robot"
+            style="width: 100%; height: 100%; object-fit: contain; opacity: 0.9;">
+        </div>
+        <div class="project-body">
+          <h3>Dash</h3>
+          <div class="project-tags">
+            <span class="tag">Humanoid</span>
+            <span class="tag">Hardware</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
         <div class="project-visual" style="background: linear-gradient(135deg, #1a1520, #0f0f1a);">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="motion capture · retargeting"
+          <iframe src="https://www.youtube.com/embed/htM7_vYRkKE?rel=0" title="Dash Motion Tracking Whole-body MPC"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
         <div class="project-body">
-          <h3>Dash</h3>
-          <p>Project description goes here. Add your details about this ongoing project.</p>
+          <h3>Dash Motion Tracking Whole-body MPC</h3>
+          <p>Whole-body MPC for design validation.</p>
           <div class="project-tags">
-            <span class="tag">Tag 1</span>
-            <span class="tag">Tag 2</span>
+            <span class="tag">MPC</span>
+            <span class="tag">Motion Tracking</span>
           </div>
         </div>
       </div>
@@ -1293,7 +1324,7 @@
   <!-- EDUCATION (inline between experience and publications) -->
   <section id="education" style="padding-top:0;">
     <div class="section-header">
-      <span class="section-label">03 / Education</span>
+      <span class="section-label">02 / Education</span>
       <div class="section-line"></div>
     </div>
 
@@ -1325,7 +1356,7 @@
   <!-- PUBLICATIONS -->
   <section id="publications" style="padding-top:0;">
     <div class="section-header">
-      <span class="section-label">04 / Publications</span>
+      <span class="section-label">03 / Publications</span>
       <div class="section-line"></div>
     </div>
     <h2>Selected Works</h2>
@@ -1374,7 +1405,7 @@
   <!-- SKILLS -->
   <section id="skills" style="padding-top:0;">
     <div class="section-header">
-      <span class="section-label">05 / Technical Skills</span>
+      <span class="section-label">04 / Technical Skills</span>
       <div class="section-line"></div>
     </div>
     <h2>Stack &amp; Tools</h2>
@@ -1431,7 +1462,7 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-header">
-      <span class="section-label">06 / Contact</span>
+      <span class="section-label">05 / Contact</span>
       <div class="section-line"></div>
     </div>
 
@@ -1485,25 +1516,7 @@
         </div>
       </div>
 
-      <div class="fade-up" style="animation-delay:0.2s;">
-        <div style="background:var(--surface); border:1px solid var(--border); padding:2.5rem;">
-          <h3 style="font-family:'DM Serif Display',serif; font-size:1.4rem; font-weight:400; margin-bottom:1.5rem;">
-            About My Work</h3>
-          <p style="color:var(--muted2); font-size:0.9rem; line-height:1.75; margin-bottom:1.5rem;">
-            I am a PhD candidate in the <strong style="color:var(--text)">DARoS Lab</strong> at UMass Amherst, working
-            under Prof. Donghyun Kim. My dissertation focuses on efficient humanoid locomotion — specifically using
-            actuated toes to replicate the energy-saving mechanics of human walking.
-          </p>
-          <p style="color:var(--muted2); font-size:0.9rem; line-height:1.75; margin-bottom:1.5rem;">
-            Outside of robotics research, I am deeply interested in the intersection of <strong
-              style="color:var(--text)">biomechanics and machine learning</strong> — and how the principles of human
-            motion can inform the design of more capable robotic systems.
-          </p>
-          <a href="mailto:dmarew@umass.edu" class="btn btn-primary" style="margin-top:0.5rem; display:inline-flex;">
-            Contact Me →
-          </a>
-        </div>
-      </div>
+
     </div>
   </section>
 
