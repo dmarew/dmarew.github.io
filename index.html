@@ -12,15 +12,61 @@
   <style>
     :root {
       --bg: #0b0f14;
+      --bg-rgb: 11, 15, 20;
       --surface: #111820;
       --surface2: #182030;
       --border: rgba(255, 255, 255, 0.07);
       --accent: #4af0a8;
+      --accent-rgb: 74, 240, 168;
       --accent2: #00b4ff;
+      --accent2-rgb: 0, 180, 255;
       --text: #e8edf5;
       --muted: #6b7a92;
       --muted2: #8fa0be;
       --red: #ff6b6b;
+      --proj-c1-1: #0f1e30;
+      --proj-c1-2: #0a1220;
+      --proj-c2-1: #182010;
+      --proj-c2-2: #0f1a0a;
+      --proj-c3-1: #1a1520;
+      --proj-c3-2: #0f0f1a;
+      --proj-c4-1: #201020;
+      --proj-c4-2: #150a15;
+      --proj-c5-1: #102020;
+      --proj-c5-2: #0a1515;
+      --proj-c6-1: #152520;
+      --proj-c6-2: #0a1815;
+      --shadow: var(--shadow);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-rgb: 248, 250, 252;
+      --surface: #ffffff;
+      --surface2: #f1f5f9;
+      --border: rgba(0, 0, 0, 0.1);
+      --accent: #059669;
+      /* Darker green for contrast */
+      --accent-rgb: 5, 150, 105;
+      --accent2: #2563eb;
+      --accent2-rgb: 37, 99, 235;
+      --text: #0f172a;
+      --muted: #64748b;
+      --muted2: #475569;
+      --red: #ef4444;
+      --proj-c1-1: #e0e7ff;
+      --proj-c1-2: #c7d2fe;
+      --proj-c2-1: #dcfce7;
+      --proj-c2-2: #bbf7d0;
+      --proj-c3-1: #f3e8ff;
+      --proj-c3-2: #e9d5ff;
+      --proj-c4-1: #fce7f3;
+      --proj-c4-2: #fbcfe8;
+      --proj-c5-1: #e0f2fe;
+      --proj-c5-2: #bae6fd;
+      --proj-c6-1: #ffedd5;
+      --proj-c6-2: #fed7aa;
+      --shadow: rgba(0, 0, 0, 0.05);
     }
 
     *,
@@ -49,8 +95,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(74, 240, 168, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(74, 240, 168, 0.025) 1px, transparent 1px);
+        linear-gradient(rgba(var(--accent-rgb), 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--accent-rgb), 0.025) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
@@ -66,7 +112,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.2rem 3rem;
-      background: rgba(11, 15, 20, 0.85);
+      background: rgba(var(--bg-rgb), 0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
@@ -127,7 +173,7 @@
       text-transform: uppercase;
       margin-bottom: 1.5rem;
       padding: 0.35rem 0.8rem;
-      border: 1px solid rgba(74, 240, 168, 0.3);
+      border: 1px solid rgba(var(--accent-rgb), 0.3);
       border-radius: 2px;
     }
 
@@ -219,7 +265,7 @@
     .btn-primary:hover {
       background: #6affbb;
       transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(74, 240, 168, 0.25);
+      box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.25);
     }
 
     .btn-ghost {
@@ -231,7 +277,7 @@
     .btn-ghost:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(74, 240, 168, 0.05);
+      background: rgba(var(--accent-rgb), 0.05);
     }
 
     /* HERO VISUAL */
@@ -266,7 +312,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(74, 240, 168, 0.06) 0%, transparent 50%, rgba(0, 180, 255, 0.06) 100%);
+      background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.06) 0%, transparent 50%, rgba(var(--accent2-rgb), 0.06) 100%);
     }
 
     .profile-photo {
@@ -275,7 +321,7 @@
       object-fit: cover;
       object-position: center 20%;
       border-radius: 2px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 8px var(--shadow);
     }
 
     .photo-caption {
@@ -473,7 +519,7 @@
     }
 
     .project-card:hover {
-      border-color: rgba(74, 240, 168, 0.3);
+      border-color: rgba(var(--accent-rgb), 0.3);
       transform: translateY(-4px);
     }
 
@@ -525,7 +571,7 @@
       font-family: 'DM Mono', monospace;
       font-size: 0.7rem;
       color: var(--accent);
-      background: rgba(74, 240, 168, 0.08);
+      background: rgba(var(--accent-rgb), 0.08);
       padding: 0.25rem 0.6rem;
       border-radius: 2px;
     }
@@ -653,7 +699,7 @@
     }
 
     .pub-item:hover .pub-preview {
-      border-color: rgba(74, 240, 168, 0.4);
+      border-color: rgba(var(--accent-rgb), 0.4);
     }
 
     .pub-item:hover .pub-preview img {
@@ -690,8 +736,8 @@
     .venue-tag {
       display: inline-block;
       padding: 0.15rem 0.5rem;
-      background: rgba(74, 240, 168, 0.1);
-      border: 1px solid rgba(74, 240, 168, 0.2);
+      background: rgba(var(--accent-rgb), 0.1);
+      border: 1px solid rgba(var(--accent-rgb), 0.2);
       border-radius: 2px;
       font-family: 'DM Mono', monospace;
       font-size: 0.68rem;
@@ -779,7 +825,7 @@
     }
 
     .award-card:hover {
-      border-color: rgba(74, 240, 168, 0.3);
+      border-color: rgba(var(--accent-rgb), 0.3);
     }
 
     .award-amount {
@@ -865,7 +911,7 @@
     .social-link:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(74, 240, 168, 0.05);
+      background: rgba(var(--accent-rgb), 0.05);
     }
 
     footer {
@@ -902,7 +948,7 @@
       width: 600px;
       height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(74, 240, 168, 0.04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(var(--accent-rgb), 0.04) 0%, transparent 70%);
       pointer-events: none;
       top: -200px;
       right: -200px;
@@ -914,7 +960,7 @@
       width: 500px;
       height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 180, 255, 0.04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(var(--accent2-rgb), 0.04) 0%, transparent 70%);
       pointer-events: none;
       bottom: 0;
       left: -100px;
@@ -978,13 +1024,34 @@
 
   <nav>
     <a href="#" class="nav-logo">DMAREW</a>
-    <ul class="nav-links">
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#robots">Research</a></li>
-      <li><a href="#robots">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div style="display:flex; align-items:center; gap: 2rem;">
+      <ul class="nav-links">
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#robots">Research</a></li>
+        <li><a href="#robots">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="btn btn-ghost"
+        style="padding: 0.5rem; min-width: auto; border: 1px solid var(--border);" aria-label="Toggle theme">
+        <svg id="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg id="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -1055,7 +1122,8 @@
         </div>
         <div class="pub-content">
           <h3>StaccaToe: A Single-Leg Robot that Mimics the Human Leg and Toe</h3>
-          <p class="pub-authors">N. Perera, S. Yu, D. Marew, M. Tang, K. Suzuki, A. McCormack, S. Zhu, Y. Kim, D. Kim</p>
+          <p class="pub-authors">N. Perera, S. Yu, D. Marew, M. Tang, K. Suzuki, A. McCormack, S. Zhu, Y. Kim, D. Kim
+          </p>
           <span class="venue-tag">IROS 2024</span>
         </div>
       </div>
@@ -1111,7 +1179,7 @@
     <h3 class="robot-header">Motion Retargeting</h3>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #0f1e30, #0a1220);">
+        <div class="project-visual" style="background: linear-gradient(135deg, var(--proj-c1-1), var(--proj-c1-2));">
           <iframe src="https://www.youtube.com/embed/Zaigk4R3HyA?rel=0" title="Motion Retargeting"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -1129,7 +1197,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #0f1e30, #0a1220);">
+        <div class="project-visual" style="background: linear-gradient(135deg, var(--proj-c1-1), var(--proj-c1-2));">
           <iframe src="https://www.youtube.com/embed/FkjsR30B100?rel=0"
             title="Dynamically Consistent Motion Retargeting"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -1148,9 +1216,9 @@
 
       <div class="project-card">
         <div class="project-visual"
-          style="background: linear-gradient(135deg, #0f1e30, #0a1220); height: 750px; position: relative;">
+          style="background: linear-gradient(135deg, var(--proj-c1-1), var(--proj-c1-2)); height: 750px; position: relative;">
           <div
-            style="position: absolute; top: 15px; left: 15px; background: rgba(74, 240, 168, 0.9); color: #0b0f14; padding: 6px 12px; border-radius: 4px; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 10; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            style="position: absolute; top: 15px; left: 15px; background: rgba(var(--accent-rgb), 0.9); color: #0b0f14; padding: 6px 12px; border-radius: 4px; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 10; pointer-events: none; box-shadow: 0 4px 12px var(--shadow);">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
@@ -1199,9 +1267,9 @@
 
       <div class="project-card">
         <div class="project-visual"
-          style="background: linear-gradient(135deg, #0f1e30, #0a1220); height: 750px; position: relative;">
+          style="background: linear-gradient(135deg, var(--proj-c1-1), var(--proj-c1-2)); height: 750px; position: relative;">
           <div
-            style="position: absolute; top: 15px; left: 15px; background: rgba(74, 240, 168, 0.9); color: #0b0f14; padding: 6px 12px; border-radius: 4px; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 10; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            style="position: absolute; top: 15px; left: 15px; background: rgba(var(--accent-rgb), 0.9); color: #0b0f14; padding: 6px 12px; border-radius: 4px; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 10; pointer-events: none; box-shadow: 0 4px 12px var(--shadow);">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
@@ -1231,7 +1299,7 @@
     <h3 class="robot-header">StaccaToe</h3>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
+        <div class="project-visual" style="background: linear-gradient(135deg, var(--proj-c2-1), var(--proj-c2-2));">
           <iframe src="https://www.youtube.com/embed/v-jaWb7lFDY?rel=0" title="RL Sim2real"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -1248,7 +1316,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #182010, #0f1a0a);">
+        <div class="project-visual" style="background: linear-gradient(135deg, var(--proj-c2-1), var(--proj-c2-2));">
           <iframe src="https://www.youtube.com/embed/0KvV1yG93LA?rel=0" title="System Identification"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -1264,7 +1332,7 @@
 
       <div class="project-card">
         <div class="project-visual"
-          style="background: linear-gradient(135deg, #182010, #0f1a0a); display: flex; justify-content: center; align-items: center; overflow: hidden;">
+          style="background: linear-gradient(135deg, var(--proj-c2-1), var(--proj-c2-2)); display: flex; justify-content: center; align-items: center; overflow: hidden;">
           <img src="staccatoe/staccatoe-wmpc.gif" alt="Wholebody MPC"
             style="width: 100%; height: 100%; object-fit: cover;">
         </div>
@@ -1279,7 +1347,7 @@
 
       <div class="project-card">
         <div class="project-visual"
-          style="background: linear-gradient(135deg, #182010, #0f1a0a); display: flex; justify-content: center; align-items: center; overflow: hidden;">
+          style="background: linear-gradient(135deg, var(--proj-c2-1), var(--proj-c2-2)); display: flex; justify-content: center; align-items: center; overflow: hidden;">
           <img src="staccatoe/staccatoe-to.gif" alt="Design Validation Trajectory Optimization"
             style="width: 100%; height: 100%; object-fit: cover;">
         </div>
@@ -1312,7 +1380,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #1a1520, #0f0f1a);">
+        <div class="project-visual" style="background: linear-gradient(135deg, var(--proj-c3-1), var(--proj-c3-2));">
           <iframe src="https://www.youtube.com/embed/htM7_vYRkKE?rel=0" title="Dash Motion Tracking Whole-body MPC"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -1357,7 +1425,7 @@
     <h3 class="robot-header">Unitree G1</h3>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #201020, #150a15);">
+        <div class="project-visual" style="background: linear-gradient(135deg, var(--proj-c4-1), var(--proj-c4-2));">
           <iframe src="https://www.youtube.com/embed/mSOZHdOepsU?rel=0" title="humanoid · rl integration"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -1377,7 +1445,7 @@
     <h3 class="robot-header">MIT Mini Cheetah</h3>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #102020, #0a1515);">
+        <div class="project-visual" style="background: linear-gradient(135deg, var(--proj-c5-1), var(--proj-c5-2));">
           <iframe src="https://www.youtube.com/embed/5exyYklqRHo" title="quadruped · dynamic locomotion"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -1395,7 +1463,7 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-visual" style="background: linear-gradient(135deg, #152520, #0a1815);">
+        <div class="project-visual" style="background: linear-gradient(135deg, var(--proj-c6-1), var(--proj-c6-2));">
           <iframe src="https://www.youtube.com/embed/32_mrH9mSTE?rel=0" title="quadruped · extreme balancing"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -1600,6 +1668,36 @@
       const email = link.dataset.u + '@' + link.dataset.d;
       link.href = 'mailto:' + email;
       if (link.dataset.show) link.textContent = email;
+    });
+
+    // Theme setup
+    const themeBtn = document.getElementById('theme-toggle');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+
+    // Check saved or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'light' || (!savedTheme && !systemDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+      moonIcon.style.display = 'block';
+      sunIcon.style.display = 'none';
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        moonIcon.style.display = 'none';
+        sunIcon.style.display = 'block';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        moonIcon.style.display = 'block';
+        sunIcon.style.display = 'none';
+      }
     });
   </script>
 </body>
