@@ -626,12 +626,39 @@
 
     .pub-item {
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: auto 180px 1fr;
       gap: 1.5rem;
       padding: 1.75rem 0;
       border-bottom: 1px solid var(--border);
-      align-items: start;
+      align-items: center;
       transition: all 0.2s;
+    }
+
+    .pub-preview {
+      width: 180px;
+      height: 110px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      transition: border-color 0.3s;
+    }
+
+    .pub-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .pub-item:hover .pub-preview {
+      border-color: rgba(74, 240, 168, 0.4);
+    }
+
+    .pub-item:hover .pub-preview img {
+      opacity: 1;
+      transform: scale(1.05);
     }
 
     .pub-item:hover {
@@ -932,6 +959,14 @@
       .awards-row {
         flex-direction: column;
       }
+
+      .pub-item {
+        grid-template-columns: auto 1fr;
+      }
+
+      .pub-preview {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -982,7 +1017,7 @@
           </svg>
           LinkedIn
         </a>
-        <a href="mailto:dmarew@umass.edu" class="btn btn-ghost">
+        <a href="#" class="btn btn-ghost e-link" data-u="dmarew" data-d="umass.edu">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
             <polyline points="22,6 12,12 2,6" />
@@ -1365,6 +1400,9 @@
 
       <div class="pub-item">
         <div class="pub-year">2024</div>
+        <div class="pub-preview">
+          <img src="publication_preview/staccatoe.gif" alt="StaccaToe preview">
+        </div>
         <div class="pub-content">
           <h3>StaccaToe: A Single-Leg Robot that Mimics the Human Leg and Toe</h3>
           <p class="pub-authors">D. Marew et al.</p>
@@ -1374,6 +1412,9 @@
 
       <div class="pub-item">
         <div class="pub-year">2024</div>
+        <div class="pub-preview">
+          <img src="publication_preview/tello.gif" alt="Tello preview">
+        </div>
         <div class="pub-content">
           <h3>Learning Generic and Dynamic Locomotion of Humanoids Across Discrete Terrains</h3>
           <p class="pub-authors">D. Marew et al.</p>
@@ -1383,6 +1424,9 @@
 
       <div class="pub-item">
         <div class="pub-year">2024</div>
+        <div class="pub-preview">
+          <img src="publication_preview/kick.gif" alt="Kicking preview">
+        </div>
         <div class="pub-content">
           <h3>A Biomechanics-Inspired Approach to Soccer Kicking for Humanoid Robots</h3>
           <p class="pub-authors">D. Marew et al.</p>
@@ -1392,6 +1436,9 @@
 
       <div class="pub-item">
         <div class="pub-year">2023</div>
+        <div class="pub-preview">
+          <img src="publication_preview/pat.gif" alt="Pat preview">
+        </div>
         <div class="pub-content">
           <h3>Integration of Riemannian Motion Policy with Whole-Body Control for Collision-Free Legged Locomotion</h3>
           <p class="pub-authors">D. Marew et al.</p>
@@ -1477,7 +1524,8 @@
 
         <div class="contact-detail">
           <span class="contact-detail-label">Email</span>
-          <span class="contact-detail-value"><a href="mailto:dmarew@umass.edu">dmarew@umass.edu</a></span>
+          <span class="contact-detail-value"><a href="#" class="e-link" data-u="dmarew" data-d="umass.edu"
+              data-show="true">Email</a></span>
         </div>
         <div class="contact-detail">
           <span class="contact-detail-label">Phone</span>
@@ -1546,6 +1594,12 @@
       navLinks.forEach(link => {
         link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
       });
+    });
+
+    document.querySelectorAll('.e-link').forEach(link => {
+      const email = link.dataset.u + '@' + link.dataset.d;
+      link.href = 'mailto:' + email;
+      if (link.dataset.show) link.textContent = email;
     });
   </script>
 </body>
